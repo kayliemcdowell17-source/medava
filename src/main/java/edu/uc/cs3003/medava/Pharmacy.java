@@ -1,39 +1,54 @@
 package edu.uc.cs3003.medava;
 
 public class Pharmacy {
-    private String pharmacyName;
-
-    public Pharmacy(String name) {
-        pharmacyName = name;
-    }
 
     public boolean send(Transporter t) {
-        Medicine advil = new Ibuprofen();
-        if (t.load(advil)) {
-            System.out.println(String.format("Sending %s on the %s transporter.", advil.getMedicineName(),
-                    t.getTransporterName()));
+        // Send Ibuprofen
+        Medicine ibuprofen = new Ibuprofen();
+        if (t.load(ibuprofen)) {
+            System.out.println(String.format("Sending %s on the %s transporter.",
+                    ibuprofen.getMedicineName(), t.getTransporterName()));
+        } else {
+            System.out.println(String.format("Cannot load %s on to the %s transporter.",
+                    ibuprofen.getMedicineName(), t.getTransporterName()));
+            return false;
         }
 
-        Medicine activase = new Thrombolytic();
-        System.out.println("Getting the minimum safe temperature for a Thrombolytic drug.");
-        System.out.println("Getting the maximum safe temperature for a Thrombolytic drug.");
-        if (t.load(activase)) {
-            System.out.println(String.format("Sending %s on the %s transporter.", activase.getMedicineName(),
-                    t.getTransporterName()));
+        // Send Thrombolytic
+        Thrombolytic thrombo = new Thrombolytic();
+        thrombo.printSafeTemperature();
+        if (t.load(thrombo)) {
+            System.out.println(String.format("Sending %s on the %s transporter.",
+                    thrombo.getMedicineName(), t.getTransporterName()));
+        } else {
+            System.out.println(String.format("Cannot load %s on to the %s transporter.",
+                    thrombo.getMedicineName(), t.getTransporterName()));
+            return false;
         }
 
-        Medicine oxycontin = new Oxycodone();
-        if (t.load(oxycontin)) {
-            System.out.println(String.format("Sending %s on the %s transporter.", oxycontin.getMedicineName(),
-                    t.getTransporterName()));
+        // Send Oxycodone
+        Medicine oxy = new Oxycodone();
+        if (t.load(oxy)) {
+            System.out.println(String.format("Sending %s on the %s transporter.",
+                    oxy.getMedicineName(), t.getTransporterName()));
+        } else {
+            System.out.println(String.format("Cannot load %s on to the %s transporter.",
+                    oxy.getMedicineName(), t.getTransporterName()));
+            return false;
         }
 
-        Jarvik heart = new Jarvik("01j9a9lk71");
-        if (t.load(heart)) {
-            System.out.println(String.format("Sending %s on the %s transporter.", heart.getMedicineName(),
-                    t.getTransporterName()));
+        // Send Jarvik Artificial Heart
+        Medicine jarvik = new Jarvik();
+        if (t.load(jarvik)) {
+            System.out.println(String.format("Sending %s on the %s transporter.",
+                    jarvik.getMedicineName(), t.getTransporterName()));
+        } else {
+            System.out.println(String.format("Cannot load %s on to the %s transporter.",
+                    jarvik.getMedicineName(), t.getTransporterName()));
+            return false;
         }
 
         return true;
     }
 }
+
