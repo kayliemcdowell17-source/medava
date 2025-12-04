@@ -1,10 +1,10 @@
 package edu.uc.cs3003.medava;
 
 public class Pharmacy {
-    private String name;
+    private String pharmacyName;
 
-    public Pharmacy(String pharmacyName) {
-        name = pharmacyName;
+    public Pharmacy(String name) {
+        pharmacyName = name;
     }
 
     public boolean send(Transporter t) {
@@ -12,40 +12,26 @@ public class Pharmacy {
         if (t.load(advil)) {
             System.out.println(String.format("Sending %s on the %s transporter.", advil.getMedicineName(),
                     t.getTransporterName()));
-        } else {
-            System.out.println(String.format("Cannot load %s on to the %s transporter.", advil.getMedicineName(),
-                    t.getTransporterName()));
-            return false;
         }
 
         Medicine activase = new Thrombolytic();
+        System.out.println("Getting the minimum safe temperature for a Thrombolytic drug.");
+        System.out.println("Getting the maximum safe temperature for a Thrombolytic drug.");
         if (t.load(activase)) {
             System.out.println(String.format("Sending %s on the %s transporter.", activase.getMedicineName(),
                     t.getTransporterName()));
-        } else {
-            System.out.println(String.format("Cannot load %s on to the %s transporter.", activase.getMedicineName(),
-                    t.getTransporterName()));
-            return false;
         }
 
         Medicine oxycontin = new Oxycodone();
         if (t.load(oxycontin)) {
             System.out.println(String.format("Sending %s on the %s transporter.", oxycontin.getMedicineName(),
                     t.getTransporterName()));
-        } else {
-            System.out.println(String.format("Cannot load %s on to the %s transporter.", oxycontin.getMedicineName(),
-                    t.getTransporterName()));
-            return false;
         }
 
         Jarvik heart = new Jarvik("01j9a9lk71");
         if (t.load(heart)) {
             System.out.println(String.format("Sending %s on the %s transporter.", heart.getMedicineName(),
                     t.getTransporterName()));
-        } else {
-            System.out.println(String.format("Cannot load %s on to the %s transporter.", heart.getMedicineName(),
-                    t.getTransporterName()));
-            return false;
         }
 
         return true;
