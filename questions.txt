@@ -1,1 +1,12 @@
-Your questions here.
+
+Could we have Medicine store the safe temperature ranges for all medicines, and avoid having Thrombolytic print them separately? What are the advantages and disadvantages?
+
+Could it ever make sense for Transporter to know the order in which medicines are sent, or does that always need to be controlled by Pharmacy?
+
+Could send() in Pharmacy be refactored so as not to repeat code for every medicine? Which features of Java might make that easier?
+
+Why does Thrombolytic have its own method to print safe temperatures instead of overriding toString() or using some other mechanism?
+
+How might the design be changed if new transporters have different capabilities, such as refrigeration or controlled substance clearance?
+
+What potential errors or exceptions could occur in a real-world implementation, and how might we handle them safely in code?
