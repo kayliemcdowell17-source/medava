@@ -1,10 +1,10 @@
 package edu.uc.cs3003.medava;
 
 public class Hospital {
-    private String name;
+    private String hospitalName;
 
-    public Hospital(String hospitalName) {
-        name = hospitalName;
+    public Hospital(String name) {
+        hospitalName = name;
     }
 
     void receive(Transporter t) {
@@ -12,7 +12,8 @@ public class Hospital {
             Shippable unloaded = t.unload();
             System.out.println(String.format("Checking whether Hospital can receive %s.", unloaded.getMedicineName()));
             if (unloaded.getSchedule() != MedicineSchedule.Uncontrolled) {
-                System.out.println(String.format("Hospital cannot receive controlled substances and %s is a %s.",
+                System.out.println(String.format(
+                        "Hospital cannot receive controlled substances and %s is a %s.",
                         unloaded.getMedicineName(), unloaded.getSchedule().asString()));
             } else {
                 System.out.println(String.format("Accepted a shipment of %s.", unloaded.getMedicineName()));
@@ -20,4 +21,3 @@ public class Hospital {
         }
     }
 }
-
