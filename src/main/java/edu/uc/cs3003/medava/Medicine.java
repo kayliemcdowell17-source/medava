@@ -1,21 +1,22 @@
 package edu.uc.cs3003.medava;
 
 public abstract class Medicine implements Shippable {
-    private String mName;
+    private String name;
 
     public Medicine(String name) {
-        mName = name;
+        this.name = name;
     }
 
+    @Override
     public String getMedicineName() {
-        return mName;
+        return name;
     }
 
+    @Override
+    public boolean isTemperatureRangeAcceptable(double low, double high) {
+        return true; // default; override if needed
+    }
+
+    @Override
     public abstract MedicineSchedule getSchedule();
-    public abstract double minimumTemperature();
-    public abstract double maximumTemperature();
-
-    public boolean isTemperatureRangeAcceptable(Double lowTemperature, Double highTemperature) {
-        return (minimumTemperature() <= lowTemperature && highTemperature <= maximumTemperature());
-    }
 }
